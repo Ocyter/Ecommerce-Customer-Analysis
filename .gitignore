@@ -1,0 +1,6 @@
+ecommerce_customer_data.csv
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+venv/
+.streamlit/secrets.toml
