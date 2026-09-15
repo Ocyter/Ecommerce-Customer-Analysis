@@ -1,0 +1,36 @@
+/* Portfolio typography & spacing system — keeps headings, write-ups and section rhythm consistent */
+:root{--content-line:1.78;--heading-line:1.02}
+
+/* Primary display headings: prevent stacked lines from colliding */
+.hero h1,.case-hero-copy h1{line-height:.94;letter-spacing:-.065em;margin:32px 0 38px}
+.hero h1 br,.case-hero-copy h1 br{line-height:1.08}
+
+/* Resume hero uses inline typography, so this rule intentionally wins */
+main>.section:first-child h1{line-height:.94!important;margin:30px 0 36px!important}
+
+/* Consistent heading-to-copy spacing across every portfolio page */
+.section-heading h2,.about-card h2,.contact-inner h2,.project-copy h3,.question-card h2,.recommendation-card h2{line-height:var(--heading-line);margin-top:22px;margin-bottom:28px}
+.section-heading>p,.hero-lede,.case-hero-copy>p,.question-card p,.project-copy p,.card-body p,.method-step p,.about-card p,.contact-inner p,.recommendation-list p,.insight p{line-height:var(--content-line)}
+
+/* Small labels should never visually collide with the heading below */
+.section-kicker,.status{display:block;margin-bottom:10px}
+.project-meta{line-height:1.5}
+
+/* Keep cards readable when text wraps to multiple lines */
+.card-body h4,.method-step h3,.insight h3,.panel-head h3{line-height:1.18}
+.card-body h4{margin:14px 0 10px}
+.method-step h3{margin:48px 0 16px}
+.insight h3{margin:48px 0 16px}
+
+/* Links and metadata get a predictable breathing space */
+.text-link{margin-top:16px}
+.case-meta{margin-top:34px}
+.tag-row{margin:24px 0}
+
+/* Mobile: preserve the same hierarchy without oversized gaps */
+@media(max-width:620px){
+  .hero h1,.case-hero-copy h1{line-height:.96;margin:26px 0 32px}
+  main>.section:first-child h1{line-height:.96!important;margin:26px 0 32px!important}
+  .section-heading h2,.about-card h2,.contact-inner h2,.project-copy h3,.question-card h2,.recommendation-card h2{line-height:1.04;margin-top:18px;margin-bottom:24px}
+  .method-step h3,.insight h3{margin-top:36px}
+}
