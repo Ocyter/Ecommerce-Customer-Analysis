@@ -37,17 +37,17 @@ def build():
     styles = {
         'name': ParagraphStyle('name', fontSize=25, leading=30, spaceAfter=3, fontName=bold, textColor=colors.black),
         'role': ParagraphStyle('role', fontSize=12, leading=17, spaceAfter=8, **common),
-        'contact': ParagraphStyle('contact', fontSize=9.5, leading=14, spaceAfter=10, **common),
-        'heading': ParagraphStyle('heading', fontSize=12, leading=16, spaceBefore=9, spaceAfter=6, keepWithNext=True, fontName=bold, textColor=colors.black),
-        'body': ParagraphStyle('body', fontSize=10.3, leading=14, spaceAfter=5, **common),
+        'contact': ParagraphStyle('contact', fontSize=9.5, leading=14, spaceAfter=6, **common),
+        'heading': ParagraphStyle('heading', fontSize=12, leading=16, spaceBefore=7, spaceAfter=5, keepWithNext=True, fontName=bold, textColor=colors.black),
+        'body': ParagraphStyle('body', fontSize=10.3, leading=14, spaceAfter=4, **common),
         'job': ParagraphStyle('job', fontSize=10.5, leading=14, spaceAfter=3, keepWithNext=True, fontName=bold, textColor=colors.black),
         'detail': ParagraphStyle('detail', fontSize=10, leading=13.5, spaceAfter=5, **common),
-        'bullet': ParagraphStyle('bullet', fontSize=10.1, leading=13.5, leftIndent=10, firstLineIndent=-10, spaceAfter=4, **common)
+        'bullet': ParagraphStyle('bullet', fontSize=10.1, leading=13, leftIndent=10, firstLineIndent=-10, spaceAfter=2, **common)
     }
     out = ROOT / 'downloads' / 'Osita_Nwaigwe_Portfolio_CV.pdf'
     out.parent.mkdir(exist_ok=True)
     document = SimpleDocTemplate(str(out), pagesize=A4,
-        topMargin=13*mm, bottomMargin=14*mm, leftMargin=16*mm, rightMargin=16*mm,
+        topMargin=12*mm, bottomMargin=12*mm, leftMargin=16*mm, rightMargin=16*mm,
         title='Osita Nwaigwe | Data Analyst | Portfolio CV', author='Osita Nwaigwe')
     story = [Paragraph('Osita Nwaigwe', styles['name']), Paragraph('Data Analyst', styles['role'])]
     contact = re.search(r'<div class="cv-contact">(.*?)</div>', html, re.S).group(1)
@@ -64,7 +64,7 @@ def build():
                        Paragraph(markup(role)+' · '+markup(dates), styles['detail'])]
                 for bullet in re.findall(r'<li>(.*?)</li>', article, re.S):
                     job.append(Paragraph('• '+markup(bullet), styles['bullet']))
-                job.append(Spacer(1,5))
+                job.append(Spacer(1,2))
                 story.append(KeepTogether(job))
         elif heading == 'Core skills':
             for bullet in re.findall(r'<li>(.*?)</li>', section, re.S):
