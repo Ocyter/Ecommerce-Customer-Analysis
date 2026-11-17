@@ -1,0 +1,18 @@
+{
+  "data_type": "synthetic practice fixture, not employer or client data",
+  "raw_order_rows": 12,
+  "raw_customer_rows": 7,
+  "quarantined_order_rows": 7,
+  "outside_reporting_scope_rows": 2,
+  "reported_order_rows": 3,
+  "reported_amount_ngn": 52000,
+  "row_reconciliation_difference": 0,
+  "known_amount_reconciliation_difference_ngn": 0,
+  "missing_amount_rows": 1,
+  "checks": "passed: expected defects, row conservation, join cardinality, valid reporting rows, regional totals and known-amount reconciliation",
+  "input_sha256": {
+    "customers.csv": "12beda77beb533dce8269c8ab556c640df15d88308f1d4f5c72c43e2427bd037",
+    "orders.csv": "1791a4777a2f8e0bd38f38434df05353e2db794b787c0bbe3d76a63ec8f14e08"
+  },
+  "scope_limit": "Tests cover this small fixture. They do not establish a production system, universal validation coverage or business impact."
+}

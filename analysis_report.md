@@ -11,7 +11,7 @@ This project analyzes **500 customer records** to understand browsing behavior, 
 - **Mobile** is the most common device (178 customers, 35.6%) and has the highest average purchases among devices (**2.53**).
 - **Delhi** has the highest average purchases per customer (**2.73**) and the highest purchase rate (**87%**) among the locations in this sample.
 - Purchase volume has **very weak linear relationships** with browsing time, pages viewed, and items added to cart. Pearson correlations with purchases are -0.023, 0.014, and 0.008 respectively.
-- Age also has a very weak linear relationship with purchases (**r = -0.042**), so age alone is not a strong predictor here.
+- Age also has a very weak linear relationship with purchases (**r = -0.042**). This correlation alone does not establish predictive performance.
 
 ## Dataset Overview
 
@@ -90,10 +90,10 @@ All values are close to zero, indicating little linear association in this sampl
 
 ## Business Recommendations
 
-1. **Prioritize mobile UX.** Mobile represents the largest customer segment, so checkout speed, product discovery, and cart usability should be monitored closely.
-2. **Investigate cart abandonment.** Customers with no purchases are a natural segment for remarketing or checkout-friction analysis.
+1. **Investigate the mobile experience.** Mobile is the largest segment in this sample. Check current platform traffic and event-level behaviour before prioritising changes.
+2. **Request journey data.** Customers with no purchases are an investigation group; customer-level counts do not establish abandonment or a reason to remarket.
 3. **Compare locations.** Delhi and Kolkata perform strongly on purchase metrics; Hyderabad and Pune warrant investigation for potential differences in acquisition, product mix, or conversion experience.
-4. **Avoid over-targeting on age or gender alone.** Their relationships with purchase volume are weak in this dataset.
+4. **Avoid targeting decisions from descriptive comparisons alone.** Age has a weak linear association with purchase count; gender comparisons are descriptive group averages, not a targeting test.
 5. **Collect event-level data.** Session timestamps, product/category IDs, prices, traffic source, checkout steps, and individual order events would enable stronger funnel and cohort analysis.
 
 ## Methodology
@@ -108,3 +108,12 @@ All values are close to zero, indicating little linear association in this sampl
 ## Data Privacy
 
 The repository does **not** include the raw customer CSV. Because this is a public repository and the dataset contains user-level records, excluding the raw data is a safer publishing practice.
+
+## Source and verification status
+
+The original 500-row CSV is not published. The repository does not document its
+original provider, licence, observation period or whether it is real or simulated.
+The existing figures are retained as published portfolio results; this update
+does not independently rerun them. Missing-value and duplicate-check outcomes
+are not supplied. Full verification needs the original file and its provenance.
+These are sample descriptions, not employer outcomes or evidence of an uplift.

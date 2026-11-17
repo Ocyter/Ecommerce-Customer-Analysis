@@ -1,6 +1,6 @@
-# Case Study 03 — The Geography Conversion Paradox
+# Case Study 03 — How Metric Choice Changes Location Rankings
 
-## Why a high purchase rate does not always mean high customer value
+## Why purchase rate and purchase count can rank locations differently
 
 This case study shifts the analysis from individual behavior to **geographic performance**.
 
@@ -40,9 +40,9 @@ This suggests that simply asking “How many customers purchased?” is not enou
 
 ## Business interpretation
 
-The dataset supports a more nuanced geographic strategy:
+The sample suggests questions for a follow-up investigation:
 
-1. **Protect high-conversion markets** such as Delhi and Kolkata.
+1. **Investigate the sample patterns** in Delhi and Kolkata before proposing changes to investment.
 2. **Investigate repeat-purchase behavior** in locations with strong purchase rates but lower purchase depth.
 3. **Avoid ranking locations on purchase rate alone.**
 4. **Collect richer data** before attributing geographic differences to customer preferences, marketing effectiveness, or product availability.
@@ -72,3 +72,12 @@ This case study complements the first two projects:
 - **Geography Conversion Paradox:** challenges the assumption that one KPI can define market performance.
 
 Together, they demonstrate a consistent analytical approach: **question the obvious metric, investigate the exceptions, and state what the data cannot prove.**
+
+## Source and verification status
+
+The original 500-row CSV is not published. The repository does not document its
+original provider, licence, observation period or whether it is real or simulated.
+The existing figures are retained as published portfolio results; this update
+does not independently rerun them. Missing-value and duplicate-check outcomes
+are not supplied. Full verification needs the original file and its provenance.
+These are sample descriptions, not employer outcomes or evidence of an uplift.

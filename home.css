@@ -7,3 +7,5 @@
 .project-preview strong{font-size:clamp(1.7rem,4vw,3rem);display:block;line-height:1.15;margin-bottom:6px}
 .project-preview .legend{margin-bottom:0}
 @media(max-width:680px){.navigation{gap:8px}.navigation nav{gap:10px;flex-wrap:wrap}.hero h1{font-size:clamp(2.4rem,10vw,3rem)}}
+
+.collection-heading{border-top:1px solid var(--line);padding-top:28px;margin-bottom:26px}.collection-heading h3{font-size:23px;margin-bottom:8px}.collection-heading p{color:var(--muted);max-width:65ch;margin:0}.practice-project{margin-top:32px;border:1px solid var(--line);padding:32px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center;background:var(--tint)}.practice-project h3{font-size:28px}.practice-project p:not(.eyebrow){max-width:65ch;color:var(--muted)}@media(max-width:900px){.practice-project{grid-template-columns:1fr;gap:12px}.practice-project>.button{justify-self:start}}@media(max-width:680px){.practice-project{padding:24px}.personal-hero .actions{gap:12px}.personal-hero .text-link{padding-inline:0!important}}

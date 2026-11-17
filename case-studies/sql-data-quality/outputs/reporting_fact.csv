@@ -1,0 +1,6 @@
+order_row,order_id,customer_id,order_status,amount_ngn
+1,O001,C001,completed,12000
+6,O005,C005,cancelled,6000
+8,O007,C005,completed,24000
+11,O010,C006,pending,5000
+12,O011,C006,completed,16000

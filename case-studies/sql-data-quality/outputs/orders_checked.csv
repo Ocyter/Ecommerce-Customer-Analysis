@@ -1,0 +1,13 @@
+order_row,order_id,customer_id,order_status,amount_ngn,region,issue,disposition
+1,O001,C001,completed,12000,North,,reported
+2,O002,C002,completed,18000,South,duplicate_order_id,quarantined
+3,O002,C002,completed,18000,South,duplicate_order_id,quarantined
+4,O003,C003,completed,7000,East,ambiguous_customer_id,quarantined
+5,O004,C004,completed,8000,,missing_customer_region,quarantined
+6,O005,C005,cancelled,6000,West,,outside_reporting_scope
+7,O006,C999,completed,9000,,unknown_customer,quarantined
+8,O007,C005,completed,24000,West,,reported
+9,O008,C006,completed,-500,North,negative_amount,quarantined
+10,O009,C006,completed,,North,missing_amount,quarantined
+11,O010,C006,pending,5000,North,,outside_reporting_scope
+12,O011,C006,completed,16000,North,,reported

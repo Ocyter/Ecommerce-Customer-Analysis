@@ -10,7 +10,7 @@
 <body class="case-study">
 <a class="skip" href="#main">Skip to content</a>
 <header class="navigation wrap"><a class="identity" href="index.html">Osita Nwaigwe<span>Data Analyst</span></a>
-<nav aria-label="Main navigation"><a href="index.html#work">← Back to projects</a><a href="resume.html">CV</a><a href="index.html#contact">Contact</a></nav></header>
+<nav aria-label="Main navigation"><a href="index.html#work">← Back to case studies</a><a href="resume.html">CV</a><a href="index.html#contact">Contact</a></nav></header>
 <main id="main">
 <section class="wrap case-hero">
 <div><p class="eyebrow">CASE STUDY 01 · CUSTOMER ANALYTICS</p>
@@ -21,7 +21,7 @@
 <p>401 customers made at least one purchase. The other 99 made none.</p><div class="purchase-bar" aria-hidden="true"><span></span></div>
 <div class="legend"><span>401 purchased</span><span>99 did not</span></div></aside>
 </section>
-<section class="wrap section" id="dashboard">
+<section class="wrap section methods"><p class="eyebrow">METHOD &amp; EVIDENCE</p><h2>How the analysis was approached.</h2><ol class="method-steps"><li><strong>Inspect the structure.</strong> The Python/pandas script loads the CSV, prints its dimensions and types, and describes numeric fields.</li><li><strong>Define the measures.</strong> Purchase rate is the proportion with <code>Total_Purchases &gt; 0</code>. Average purchases includes all customers in each group, including non-buyers.</li><li><strong>Compare the groups.</strong> Group by device, gender and location; compare means and calculate Pearson correlations for numeric variables.</li><li><strong>Keep the limits visible.</strong> Customer-level counts do not reveal session order, causal effects or predictive accuracy. Missing-value and duplicate-check outcomes are not recorded in the published report.</li></ol><p class="section-intro">The web tables are static HTML summaries of the published report. They are not a Power BI report or a live database connection. The original data was not independently recalculated during this update.</p><div class="actions"><a class="text-link" href="https://github.com/Ocyter/Ecommerce-Customer-Analysis/blob/main/analysis.py">Inspect the pandas script →</a><a class="text-link" href="https://github.com/Ocyter/Ecommerce-Customer-Analysis/blob/main/analysis_report.md">Read the method and findings →</a></div><aside class="evidence-note"><h3>Data context</h3><p>These figures come from the existing 500-customer analysis report. The original provider, licence, observation period and whether the file is real or simulated are not documented in this repository. The row-level CSV is not published, so full independent recomputation needs the original file and confirmed permission to use it.</p><p>Interpret these as descriptive portfolio findings, not audited company results or an improvement delivered for a client.</p></aside></section><section class="wrap section" id="dashboard">
 <p class="eyebrow">PORTFOLIO DATASET</p><h2>Customer behaviour dashboard</h2>
 <p class="section-intro">These figures summarise the full dataset, with published breakdowns below. Each row represents a customer, so the data cannot show the order of actions within a shopping session.</p>
 <dl class="kpi-list"><div><dt>Purchase rate</dt><dd>80.2%</dd></div><div><dt>Pages viewed per customer</dt><dd>27.00</dd></div><div><dt>Cart items per customer</dt><dd>5.15</dd></div><div><dt>Purchases per customer</dt><dd>2.46</dd></div></dl>
@@ -38,6 +38,6 @@
 <div class="actions"><a class="button primary" href="case-studies/cart-conversion-gap/">Read the cart analysis →</a><a class="button" href="https://github.com/Ocyter/Ecommerce-Customer-Analysis/blob/main/analysis_report.md">Read the analysis report →</a></div></div>
 </section>
 </main>
-<footer class="wrap"><span>Osita Nwaigwe · Data Analyst</span><a href="index.html#work">Back to projects ↑</a></footer>
+<footer class="wrap"><span>Osita Nwaigwe · Data Analyst</span><a href="index.html#work">Back to case studies ↑</a></footer>
 </body>
 </html>

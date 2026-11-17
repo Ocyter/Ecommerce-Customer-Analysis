@@ -1,0 +1,8 @@
+order_row,order_id,customer_id,order_status,amount_ngn,issue
+2,O002,C002,completed,18000,duplicate_order_id
+3,O002,C002,completed,18000,duplicate_order_id
+4,O003,C003,completed,7000,ambiguous_customer_id
+5,O004,C004,completed,8000,missing_customer_region
+7,O006,C999,completed,9000,unknown_customer
+9,O008,C006,completed,-500,negative_amount
+10,O009,C006,completed,,missing_amount

@@ -52,3 +52,12 @@ This dataset is customer-level and does not contain event timestamps, session ID
 ## Portfolio angle
 
 This case study complements the main Signal Map project by demonstrating a different analytical skill: **challenging the obvious funnel story instead of simply visualizing it.**
+
+## Source and verification status
+
+The original 500-row CSV is not published. The repository does not document its
+original provider, licence, observation period or whether it is real or simulated.
+The existing figures are retained as published portfolio results; this update
+does not independently rerun them. Missing-value and duplicate-check outcomes
+are not supplied. Full verification needs the original file and its provenance.
+These are sample descriptions, not employer outcomes or evidence of an uplift.

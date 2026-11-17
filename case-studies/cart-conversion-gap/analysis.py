@@ -26,4 +26,4 @@ print(pd.crosstab(df["Cart_Active"], df["Purchased"]))
 
 print("\nInterpretation:")
 print("Cart activity is common among both purchasers and non-purchasers.")
-print("This dataset does not support treating cart additions as a strong standalone conversion predictor.")
+print("Similar group means alone do not establish predictive accuracy; richer data and validation would be needed.")
