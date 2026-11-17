@@ -1,0 +1,119 @@
+/* Shared case-study and CV layout, using the homepage palette and type. */
+.navigation nav a,.case-study footer a,.cv footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 6px;
+}
+.case-hero {
+  display: grid;
+  grid-template-columns: minmax(0,1.25fr) minmax(0,1fr);
+  align-items: center;
+  gap: clamp(24px,5vw,72px);
+  padding-block: clamp(36px,6vw,84px);
+}
+.case-hero h1,.cv-heading h1 {font-size:clamp(2.15rem,5.3vw,4.6rem)}
+.case-hero p:not(.eyebrow),.section-intro {max-width:64ch}
+.case-hero > div > p:not(.eyebrow),.section-intro {color:var(--muted)}
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+.case-meta span,.data-list span {
+  background: var(--tint);
+  padding: 8px 12px;
+  font-size: .875rem;
+}
+.case-study .section {border-top:1px solid var(--line);padding-block:clamp(36px,6vw,76px)}
+.case-intro,.dash-grid,.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 20px;
+}
+.case-intro h2,.recommendation-card h2 {font-size:clamp(1.7rem,3.5vw,2.65rem)}
+.question-card,.data-card,.dash-panel,.metric-panel,.recommendation-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: clamp(16px,3vw,32px);
+  min-width: 0;
+}
+.data-list {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.kpi-list {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.kpi-list > div {background:var(--tint);padding:16px;display:flex;flex-direction:column-reverse}
+.kpi-list dt,.kpi-list dd {margin:0}
+.kpi-list dt {color:var(--muted);font-weight:500}
+.kpi-list dd {font-size:clamp(1.35rem,3vw,2.2rem);font-weight:750;color:var(--ink)}
+.metric-panel:last-child:nth-child(odd) {grid-column:1/-1}
+.metric-panel table {border-collapse:collapse;width:100%;font-size:.9375rem;line-height:1.45}
+.metric-panel caption {text-align:left;font-weight:750;font-size:1.15rem;margin-bottom:12px}
+.metric-panel :is(th,td) {padding:10px 6px;border-bottom:1px solid var(--line)}
+.metric-panel th {text-align:left}
+.metric-panel :is(th,td):not(:first-child) {text-align:right}
+.metric-panel td {font-variant-numeric:tabular-nums}
+.insight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,230px),1fr));
+  gap: 20px;
+}
+.insight {border-top:2px solid var(--green);padding:16px 0}
+.insight h3,.dash-panel h3 {font-size:1.15rem;margin:6px 0 12px}
+.insight p,.recommendation-card p:not(.eyebrow) {color:var(--muted)}
+.insight > span,.recommendation-list b {color:var(--green)}
+.recommendation-card {margin-top:24px;background:var(--tint)}
+.recommendation-list > div {display:grid;grid-template-columns:2rem 1fr;gap:8px;border-top:1px solid var(--line);padding:12px 0}
+.recommendation-list p {margin:0}
+.panel-head {display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.panel-head > span,.h-row > span {font-size:.875rem;color:var(--muted)}
+.h-bars {display:grid;gap:10px}
+.h-row {display:grid;grid-template-columns:minmax(5.25rem,auto) 1fr 2.6rem;gap:8px;align-items:center}
+.h-row b {text-align:right;font-variant-numeric:tabular-nums}
+.h-track {background:var(--tint);height:10px}
+.h-track i {display:block;height:100%;background:var(--green)}
+.cv-page {max-width:890px;padding-block:clamp(32px,5vw,64px)}
+.cv-heading {border-bottom:1px solid var(--line);padding-bottom:24px}
+.cv-heading h1 {margin-bottom:8px}
+.cv-role {font-size:1.25rem;font-weight:650;margin:0 0 12px}
+.cv-contact {display:flex;flex-wrap:wrap;gap:0 18px;overflow-wrap:anywhere}
+.cv-contact a {display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+.cv button {font:inherit;font-weight:650;cursor:pointer}
+.cv button:focus-visible {outline:3px solid #a44a20;outline-offset:5px}
+.cv-page section {padding-block:20px;border-bottom:1px solid var(--line)}
+.cv-page h2 {font-size:1.55rem;margin-bottom:12px}
+.cv-page h3 {font-size:1.15rem;margin:0}
+.cv-page section p {margin-block:0 8px}
+.cv-page li {margin-bottom:4px}
+.cv-job + .cv-job {border-top:1px solid var(--line);padding-top:14px}
+.cv-job-heading {display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.cv-date {color:var(--muted);font-size:.875rem;white-space:nowrap}
+.cv-page ul {padding-inline-start:1.25em}
+.cv-page section a {text-decoration:underline}
+@media (max-width:680px) {
+  .case-hero,.case-intro,.dash-grid,.metric-grid {grid-template-columns:1fr}
+  .kpi-list {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .case-hero .featured {padding:20px}
+  .case-study .navigation,.cv .navigation {gap:8px}
+  .cv-job-heading {display:block}
+  .cv-date {white-space:normal}
+  .data-list span {padding:7px}
+}
+@media print {
+  .cv {background:white;color:black;font:10.5pt/1.35 Arial,sans-serif}
+  .cv > :is(.skip,.navigation,footer),.cv-print {display:none}
+  .cv .cv-page {width:auto;max-width:none;padding:0;margin:0}
+  .cv .cv-page :is(h1,h2,h3,p,a,li) {color:black}
+  .cv .cv-heading {padding-bottom:10px}
+  .cv .cv-heading h1 {font-size:25pt;margin-bottom:4px}
+  .cv .cv-contact a {min-height:0}
+  .cv .cv-page section {padding-block:9px}
+  .cv .cv-page h2 {font-size:13pt;margin-bottom:6px}
+  .cv .cv-page h3 {font-size:11.5pt}
+  .cv .cv-job {break-inside:avoid}
+  .cv h2 {break-after:avoid}
+}
