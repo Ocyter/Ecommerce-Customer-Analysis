@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "name": "defects",
+  "position": {
+    "x": 570,
+    "y": 190,
+    "width": 450,
+    "height": 420,
+    "z": 2,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Quarantine"
+                    }
+                  },
+                  "Property": "issue"
+                }
+              },
+              "queryRef": "Quarantine.issue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Quarantine"
+                    }
+                  },
+                  "Property": "Rejected Rows"
+                }
+              },
+              "queryRef": "Quarantine.Rejected Rows"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Quarantined rows by primary issue'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -51,7 +51,7 @@ guards exist but are not seeded in this fixture.
 - `outputs/orders_checked.csv`: row-level decisions.
 - `outputs/reconciliation.csv`: accounting of all rows and known amounts.
 - `outputs/verification.json`: checked results and limitations.
-- `power-bi/`: starter measures and instructions, not a completed PBIX.
+- `power-bi/`: portable two-page PBIP, model, DAX and validation instructions. A Windows Desktop refresh and visual test are still outstanding.
 
 The checks cover expected rejected rows, no join row multiplication, valid
 reporting rows and regional aggregates. They do not establish production

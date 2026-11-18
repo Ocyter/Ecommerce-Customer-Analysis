@@ -1,0 +1,328 @@
+{
+  "compatibilityLevel": 1567,
+  "name": "OrderReview",
+  "model": {
+    "culture": "en-US",
+    "sourceQueryCulture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "tables": [
+      {
+        "name": "Customers",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "sourceColumn": "customer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "region",
+            "dataType": "string",
+            "sourceColumn": "region",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Customers",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Csv = Csv.Document(Binary.FromText(\"Y3VzdG9tZXJfaWQscmVnaW9uCkMwMDEsTm9ydGgKQzAwMixTb3V0aApDMDA1LFdlc3QKQzAwNixOb3J0aAo=\", BinaryEncoding.Base64), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Csv, [PromoteAllScalars=true]),",
+                "    Blanks = Headers,",
+                "    Typed = Table.TransformColumnTypes(Blanks, {{\"customer_id\", type text}, {\"region\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Orders",
+        "columns": [
+          {
+            "name": "order_row",
+            "dataType": "int64",
+            "sourceColumn": "order_row",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_id",
+            "dataType": "string",
+            "sourceColumn": "order_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "sourceColumn": "customer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_status",
+            "dataType": "string",
+            "sourceColumn": "order_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "amount_ngn",
+            "dataType": "int64",
+            "sourceColumn": "amount_ngn",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Orders",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Csv = Csv.Document(Binary.FromText(\"b3JkZXJfcm93LG9yZGVyX2lkLGN1c3RvbWVyX2lkLG9yZGVyX3N0YXR1cyxhbW91bnRfbmduCjEsTzAwMSxDMDAxLGNvbXBsZXRlZCwxMjAwMAo2LE8wMDUsQzAwNSxjYW5jZWxsZWQsNjAwMAo4LE8wMDcsQzAwNSxjb21wbGV0ZWQsMjQwMDAKMTEsTzAxMCxDMDA2LHBlbmRpbmcsNTAwMAoxMixPMDExLEMwMDYsY29tcGxldGVkLDE2MDAwCg==\", BinaryEncoding.Base64), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Csv, [PromoteAllScalars=true]),",
+                "    Blanks = Table.ReplaceValue(Headers, \"\", null, Replacer.ReplaceValue, {\"order_row\", \"amount_ngn\"}),",
+                "    Typed = Table.TransformColumnTypes(Blanks, {{\"order_row\", Int64.Type}, {\"order_id\", type text}, {\"customer_id\", type text}, {\"order_status\", type text}, {\"amount_ngn\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Completed Orders",
+            "expression": "COALESCE(CALCULATE(COUNTROWS(Orders), KEEPFILTERS(Orders[order_status] = \"completed\")), 0)",
+            "formatString": "#,0;(#,0);0"
+          },
+          {
+            "name": "Reported Amount NGN",
+            "expression": "COALESCE(CALCULATE(SUM(Orders[amount_ngn]), KEEPFILTERS(Orders[order_status] = \"completed\")), 0)",
+            "formatString": "#,0;(#,0);0"
+          }
+        ]
+      },
+      {
+        "name": "Quarantine",
+        "columns": [
+          {
+            "name": "order_row",
+            "dataType": "int64",
+            "sourceColumn": "order_row",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_id",
+            "dataType": "string",
+            "sourceColumn": "order_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "sourceColumn": "customer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_status",
+            "dataType": "string",
+            "sourceColumn": "order_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "amount_ngn",
+            "dataType": "int64",
+            "sourceColumn": "amount_ngn",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "issue",
+            "dataType": "string",
+            "sourceColumn": "issue",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Quarantine",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Csv = Csv.Document(Binary.FromText(\"b3JkZXJfcm93LG9yZGVyX2lkLGN1c3RvbWVyX2lkLG9yZGVyX3N0YXR1cyxhbW91bnRfbmduLGlzc3VlCjIsTzAwMixDMDAyLGNvbXBsZXRlZCwxODAwMCxkdXBsaWNhdGVfb3JkZXJfaWQKMyxPMDAyLEMwMDIsY29tcGxldGVkLDE4MDAwLGR1cGxpY2F0ZV9vcmRlcl9pZAo0LE8wMDMsQzAwMyxjb21wbGV0ZWQsNzAwMCxhbWJpZ3VvdXNfY3VzdG9tZXJfaWQKNSxPMDA0LEMwMDQsY29tcGxldGVkLDgwMDAsbWlzc2luZ19jdXN0b21lcl9yZWdpb24KNyxPMDA2LEM5OTksY29tcGxldGVkLDkwMDAsdW5rbm93bl9jdXN0b21lcgo5LE8wMDgsQzAwNixjb21wbGV0ZWQsLTUwMCxuZWdhdGl2ZV9hbW91bnQKMTAsTzAwOSxDMDA2LGNvbXBsZXRlZCwsbWlzc2luZ19hbW91bnQK\", BinaryEncoding.Base64), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Csv, [PromoteAllScalars=true]),",
+                "    Blanks = Table.ReplaceValue(Headers, \"\", null, Replacer.ReplaceValue, {\"order_row\", \"amount_ngn\"}),",
+                "    Typed = Table.TransformColumnTypes(Blanks, {{\"order_row\", Int64.Type}, {\"order_id\", type text}, {\"customer_id\", type text}, {\"order_status\", type text}, {\"amount_ngn\", Int64.Type}, {\"issue\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Rejected Rows",
+            "expression": "COUNTROWS(Quarantine)",
+            "formatString": "#,0;(#,0);0"
+          }
+        ]
+      },
+      {
+        "name": "Reconciliation",
+        "columns": [
+          {
+            "name": "disposition",
+            "dataType": "string",
+            "sourceColumn": "disposition",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "rows",
+            "dataType": "int64",
+            "sourceColumn": "rows",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "known_amount_ngn",
+            "dataType": "int64",
+            "sourceColumn": "known_amount_ngn",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "missing_amount_rows",
+            "dataType": "int64",
+            "sourceColumn": "missing_amount_rows",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Reconciliation",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Csv = Csv.Document(Binary.FromText(\"ZGlzcG9zaXRpb24scm93cyxrbm93bl9hbW91bnRfbmduLG1pc3NpbmdfYW1vdW50X3Jvd3MKb3V0c2lkZV9yZXBvcnRpbmdfc2NvcGUsMiwxMTAwMCwwCnF1YXJhbnRpbmVkLDcsNTk1MDAsMQpyZXBvcnRlZCwzLDUyMDAwLDAK\", BinaryEncoding.Base64), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Csv, [PromoteAllScalars=true]),",
+                "    Blanks = Table.ReplaceValue(Headers, \"\", null, Replacer.ReplaceValue, {\"rows\", \"known_amount_ngn\", \"missing_amount_rows\"}),",
+                "    Typed = Table.TransformColumnTypes(Blanks, {{\"disposition\", type text}, {\"rows\", Int64.Type}, {\"known_amount_ngn\", Int64.Type}, {\"missing_amount_rows\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Routed Rows",
+            "expression": "SUM(Reconciliation[rows])",
+            "formatString": "#,0;(#,0);0"
+          },
+          {
+            "name": "Routed Known Amount NGN",
+            "expression": "SUM(Reconciliation[known_amount_ngn])",
+            "formatString": "#,0;(#,0);0"
+          },
+          {
+            "name": "Row Difference",
+            "expression": "[Input Rows] - CALCULATE([Routed Rows], REMOVEFILTERS(Reconciliation))",
+            "formatString": "#,0;(#,0);0"
+          },
+          {
+            "name": "Known Amount Difference NGN",
+            "expression": "[Raw Known Amount NGN] - CALCULATE([Routed Known Amount NGN], REMOVEFILTERS(Reconciliation))",
+            "formatString": "#,0;(#,0);0"
+          }
+        ]
+      },
+      {
+        "name": "RawOrders",
+        "columns": [
+          {
+            "name": "order_row",
+            "dataType": "int64",
+            "sourceColumn": "order_row",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_id",
+            "dataType": "string",
+            "sourceColumn": "order_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "sourceColumn": "customer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_status",
+            "dataType": "string",
+            "sourceColumn": "order_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "amount_ngn",
+            "dataType": "int64",
+            "sourceColumn": "amount_ngn",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "RawOrders",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Csv = Csv.Document(Binary.FromText(\"b3JkZXJfcm93LG9yZGVyX2lkLGN1c3RvbWVyX2lkLG9yZGVyX3N0YXR1cyxhbW91bnRfbmduCjEsTzAwMSxDMDAxLGNvbXBsZXRlZCwxMjAwMAoyLE8wMDIsQzAwMixjb21wbGV0ZWQsMTgwMDAKMyxPMDAyLEMwMDIsY29tcGxldGVkLDE4MDAwCjQsTzAwMyxDMDAzLGNvbXBsZXRlZCw3MDAwCjUsTzAwNCxDMDA0LGNvbXBsZXRlZCw4MDAwCjYsTzAwNSxDMDA1LGNhbmNlbGxlZCw2MDAwCjcsTzAwNixDOTk5LGNvbXBsZXRlZCw5MDAwCjgsTzAwNyxDMDA1LGNvbXBsZXRlZCwyNDAwMAo5LE8wMDgsQzAwNixjb21wbGV0ZWQsLTUwMAoxMCxPMDA5LEMwMDYsY29tcGxldGVkLAoxMSxPMDEwLEMwMDYscGVuZGluZyw1MDAwCjEyLE8wMTEsQzAwNixjb21wbGV0ZWQsMTYwMDAK\", BinaryEncoding.Base64), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Csv, [PromoteAllScalars=true]),",
+                "    Blanks = Table.ReplaceValue(Headers, \"\", null, Replacer.ReplaceValue, {\"order_row\", \"amount_ngn\"}),",
+                "    Typed = Table.TransformColumnTypes(Blanks, {{\"order_row\", Int64.Type}, {\"order_id\", type text}, {\"customer_id\", type text}, {\"order_status\", type text}, {\"amount_ngn\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Input Rows",
+            "expression": "COUNTROWS(RawOrders)",
+            "formatString": "#,0;(#,0);0"
+          },
+          {
+            "name": "Missing Amount Rows",
+            "expression": "COUNTBLANK(RawOrders[amount_ngn])",
+            "formatString": "#,0;(#,0);0"
+          },
+          {
+            "name": "Raw Known Amount NGN",
+            "expression": "SUM(RawOrders[amount_ngn])",
+            "formatString": "#,0;(#,0);0"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "d14f555a-0031-471f-be43-11c389fe245e",
+        "fromTable": "Orders",
+        "fromColumn": "customer_id",
+        "toTable": "Customers",
+        "toColumn": "customer_id",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection"
+      }
+    ]
+  }
+}

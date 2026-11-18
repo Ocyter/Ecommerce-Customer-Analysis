@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.0.0/schema.json",
+  "name": "reported",
+  "displayName": "Completed orders | synthetic",
+  "width": 1040,
+  "height": 640,
+  "displayOption": "FitToPage"
+}

@@ -1,0 +1,142 @@
+{
+  "age_range": [
+    18,
+    35
+  ],
+  "buyers": 401,
+  "cart_and_buyer": 364,
+  "cart_and_nonbuyer": 95,
+  "columns": 9,
+  "distinct_ids": 500,
+  "duplicate_rows": 0,
+  "median_purchases": 2.0,
+  "missing_cells": 0,
+  "no_cart_and_buyer": 37,
+  "no_cart_and_nonbuyer": 4,
+  "overall_means": {
+    "Items_Added_to_Cart": 5.15,
+    "Product_Browsing_Time": 30.74,
+    "Total_Pages_Viewed": 27.182,
+    "Total_Purchases": 2.464
+  },
+  "pearson_to_purchase_count": {
+    "Age": -0.042094,
+    "Items_Added_to_Cart": 0.007978,
+    "Product_Browsing_Time": -0.023239,
+    "Total_Pages_Viewed": 0.01363
+  },
+  "rows": 500,
+  "segments": {
+    "Device_Type": {
+      "Desktop": {
+        "buyers": 124,
+        "customers": 159,
+        "mean_browsing": 29.830189,
+        "mean_cart": 4.660377,
+        "mean_pages": 26.0,
+        "mean_purchases": 2.396226
+      },
+      "Mobile": {
+        "buyers": 144,
+        "customers": 178,
+        "mean_browsing": 30.668539,
+        "mean_cart": 5.657303,
+        "mean_pages": 27.792135,
+        "mean_purchases": 2.533708
+      },
+      "Tablet": {
+        "buyers": 133,
+        "customers": 163,
+        "mean_browsing": 31.705521,
+        "mean_cart": 5.07362,
+        "mean_pages": 27.668712,
+        "mean_purchases": 2.453988
+      }
+    },
+    "Gender": {
+      "Female": {
+        "buyers": 185,
+        "customers": 239,
+        "mean_browsing": 31.548117,
+        "mean_cart": 5.271967,
+        "mean_pages": 27.577406,
+        "mean_purchases": 2.276151
+      },
+      "Male": {
+        "buyers": 216,
+        "customers": 261,
+        "mean_browsing": 30.0,
+        "mean_cart": 5.038314,
+        "mean_pages": 26.819923,
+        "mean_purchases": 2.636015
+      }
+    },
+    "Location": {
+      "Ahmedabad": {
+        "buyers": 48,
+        "customers": 62,
+        "mean_browsing": 29.725806,
+        "mean_cart": 5.096774,
+        "mean_pages": 26.935484,
+        "mean_purchases": 2.451613
+      },
+      "Bangalore": {
+        "buyers": 45,
+        "customers": 61,
+        "mean_browsing": 32.540984,
+        "mean_cart": 5.52459,
+        "mean_pages": 27.180328,
+        "mean_purchases": 2.409836
+      },
+      "Chennai": {
+        "buyers": 46,
+        "customers": 56,
+        "mean_browsing": 27.142857,
+        "mean_cart": 4.946429,
+        "mean_pages": 28.607143,
+        "mean_purchases": 2.553571
+      },
+      "Delhi": {
+        "buyers": 61,
+        "customers": 70,
+        "mean_browsing": 29.371429,
+        "mean_cart": 5.0,
+        "mean_pages": 26.842857,
+        "mean_purchases": 2.728571
+      },
+      "Hyderabad": {
+        "buyers": 45,
+        "customers": 62,
+        "mean_browsing": 33.322581,
+        "mean_cart": 4.677419,
+        "mean_pages": 25.822581,
+        "mean_purchases": 2.225806
+      },
+      "Kolkata": {
+        "buyers": 60,
+        "customers": 71,
+        "mean_browsing": 33.43662,
+        "mean_cart": 5.366197,
+        "mean_pages": 27.901408,
+        "mean_purchases": 2.676056
+      },
+      "Mumbai": {
+        "buyers": 48,
+        "customers": 59,
+        "mean_browsing": 30.423729,
+        "mean_cart": 5.033898,
+        "mean_pages": 27.016949,
+        "mean_purchases": 2.457627
+      },
+      "Pune": {
+        "buyers": 48,
+        "customers": 59,
+        "mean_browsing": 29.338983,
+        "mean_cart": 5.542373,
+        "mean_pages": 27.220339,
+        "mean_purchases": 2.135593
+      }
+    }
+  },
+  "sha256": "f4bf7d931759c85e09186e642b201083c3ed2a97b9c5bf4a48ef41c7ff7f7fab"
+}

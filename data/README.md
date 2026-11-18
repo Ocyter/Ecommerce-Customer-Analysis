@@ -14,9 +14,4 @@ The dashboard is designed to work from the uploaded dataset without exposing cus
 
 ## Source and verification status
 
-The original 500-row CSV is not published. The repository does not document its
-original provider, licence, observation period or whether it is real or simulated.
-The existing figures are retained as published portfolio results; this update
-does not independently rerun them. Missing-value and duplicate-check outcomes
-are not supplied. Full verification needs the original file and its provenance.
-These are sample descriptions, not employer outcomes or evidence of an uplift.
+On 18 November 2026, a [source comparison](Customer_Source_Check.md) reproduced the historical buyer counts, cart cross-tab, location purchase rankings and correlations on a public copy. Some published browsing, page and cart averages did not match it. The historical file, original collection details, real/simulated status and reuse terms remain unverified. These sample results do not measure employer or client outcomes.

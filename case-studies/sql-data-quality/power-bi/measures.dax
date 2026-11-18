@@ -1,37 +1,25 @@
-// Starter measures. Create each separately in Desktop.
-// SQL outputs are verified; DAX execution in Desktop is still to be checked.
-Completed Orders =
-CALCULATE (
-    COUNTROWS ( Orders ),
-    KEEPFILTERS ( Orders[order_status] = "completed" )
-)
+// Report model measures by table. DAX engine execution requires Power BI Desktop.
 
-Reported Amount NGN =
-CALCULATE (
-    SUM ( Orders[amount_ngn] ),
-    KEEPFILTERS ( Orders[order_status] = "completed" )
-)
+// Orders
+Completed Orders = COALESCE(CALCULATE(COUNTROWS(Orders), KEEPFILTERS(Orders[order_status] = "completed")), 0)
 
-// Reconciliation is a disconnected, full-extract summary table.
-Input Rows = SUM ( Reconciliation[rows] )
+Reported Amount NGN = COALESCE(CALCULATE(SUM(Orders[amount_ngn]), KEEPFILTERS(Orders[order_status] = "completed")), 0)
 
-Quarantined Rows =
-CALCULATE (
-    SUM ( Reconciliation[rows] ),
-    Reconciliation[disposition] = "quarantined"
-)
+// RawOrders
+Input Rows = COUNTROWS(RawOrders)
 
-Reported Rows =
-CALCULATE (
-    SUM ( Reconciliation[rows] ),
-    Reconciliation[disposition] = "reported"
-)
+Missing Amount Rows = COUNTBLANK(RawOrders[amount_ngn])
 
-Outside Scope Rows =
-CALCULATE (
-    SUM ( Reconciliation[rows] ),
-    Reconciliation[disposition] = "outside_reporting_scope"
-)
+Raw Known Amount NGN = SUM(RawOrders[amount_ngn])
 
-Reconciliation Difference =
-[Input Rows] - [Quarantined Rows] - [Reported Rows] - [Outside Scope Rows]
+// Quarantine
+Rejected Rows = COUNTROWS(Quarantine)
+
+// Reconciliation
+Routed Rows = SUM(Reconciliation[rows])
+
+Routed Known Amount NGN = SUM(Reconciliation[known_amount_ngn])
+
+Row Difference = [Input Rows] - CALCULATE([Routed Rows], REMOVEFILTERS(Reconciliation))
+
+Known Amount Difference NGN = [Raw Known Amount NGN] - CALCULATE([Routed Known Amount NGN], REMOVEFILTERS(Reconciliation))

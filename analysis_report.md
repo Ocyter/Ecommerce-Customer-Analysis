@@ -15,6 +15,8 @@ This project analyzes **500 customer records** to understand browsing behavior, 
 
 ## Dataset Overview
 
+The tables below use freshly calculated values from the pinned comparison file, not the unavailable historical file. The [source check](data/Customer_Source_Check.md) records the differences; no raw data is redistributed.
+
 | Metric | Value |
 |---|---:|
 | Customers | 500 |
@@ -23,8 +25,8 @@ This project analyzes **500 customer records** to understand browsing behavior, 
 | Locations | 8 |
 | Devices | 3 |
 | Age range | 18–35 |
-| Average browsing time | 30.77 |
-| Average pages viewed | 27.00 |
+| Average browsing time | 30.74 |
+| Average pages viewed | 27.18 |
 | Average items added to cart | 5.15 |
 | Average purchases | 2.46 |
 | Customers with at least one purchase | 401 (80.2%) |
@@ -36,8 +38,8 @@ This project analyzes **500 customer records** to understand browsing behavior, 
 
 | Gender | Customers | Avg. browsing time | Avg. pages | Avg. cart items | Avg. purchases |
 |---|---:|---:|---:|---:|---:|
-| Female | 239 | 31.55 | 27.03 | 5.08 | 2.28 |
-| Male | 261 | 30.00 | 26.97 | 5.21 | 2.64 |
+| Female | 239 | 31.55 | 27.58 | 5.27 | 2.28 |
+| Male | 261 | 30.00 | 26.82 | 5.04 | 2.64 |
 
 Male customers average 2.64 purchases versus 2.28 for female customers. This is descriptive only and should not be interpreted as a causal gender effect.
 
@@ -45,9 +47,9 @@ Male customers average 2.64 purchases versus 2.28 for female customers. This is 
 
 | Device | Customers | Avg. browsing time | Avg. pages | Avg. cart items | Avg. purchases |
 |---|---:|---:|---:|---:|---:|
-| Desktop | 159 | 29.83 | 26.92 | 5.06 | 2.40 |
-| Mobile | 178 | 30.67 | 27.13 | 5.21 | 2.53 |
-| Tablet | 163 | 31.71 | 26.94 | 5.17 | 2.45 |
+| Desktop | 159 | 29.83 | 26.00 | 4.66 | 2.40 |
+| Mobile | 178 | 30.67 | 27.79 | 5.66 | 2.53 |
+| Tablet | 163 | 31.71 | 27.67 | 5.07 | 2.45 |
 
 Mobile is the largest segment and has slightly higher average purchases than desktop and tablet users. The differences are modest.
 
@@ -55,14 +57,14 @@ Mobile is the largest segment and has slightly higher average purchases than des
 
 | Location | Customers | Avg. browsing time | Avg. pages | Avg. cart items | Avg. purchases | Purchase rate |
 |---|---:|---:|---:|---:|---:|---:|
-| Delhi | 70 | 29.37 | 26.91 | 5.27 | 2.73 | 87% |
-| Kolkata | 71 | 33.44 | 27.21 | 5.10 | 2.68 | 85% |
-| Chennai | 56 | 27.14 | 26.61 | 5.18 | 2.55 | 82% |
-| Mumbai | 59 | 30.42 | 26.66 | 5.15 | 2.46 | 81% |
-| Ahmedabad | 62 | 29.73 | 27.19 | 5.06 | 2.45 | 77% |
-| Bangalore | 61 | 32.54 | 27.52 | 5.18 | 2.41 | 74% |
-| Hyderabad | 62 | 33.32 | 27.40 | 5.08 | 2.23 | 73% |
-| Pune | 59 | 29.34 | 26.27 | 5.15 | 2.14 | 81% |
+| Delhi | 70 | 29.37 | 26.84 | 5.00 | 2.73 | 87% |
+| Kolkata | 71 | 33.44 | 27.90 | 5.37 | 2.68 | 85% |
+| Chennai | 56 | 27.14 | 28.61 | 4.95 | 2.55 | 82% |
+| Mumbai | 59 | 30.42 | 27.02 | 5.03 | 2.46 | 81% |
+| Ahmedabad | 62 | 29.73 | 26.94 | 5.10 | 2.45 | 77% |
+| Bangalore | 61 | 32.54 | 27.18 | 5.52 | 2.41 | 74% |
+| Hyderabad | 62 | 33.32 | 25.82 | 4.68 | 2.23 | 73% |
+| Pune | 59 | 29.34 | 27.22 | 5.54 | 2.14 | 81% |
 
 Delhi leads the sample on both average purchases and purchase rate, while Hyderabad has the lowest purchase rate and Pune has the lowest average purchases. These differences are useful for segmentation, but the dataset does not establish why they occur.
 
@@ -111,9 +113,4 @@ The repository does **not** include the raw customer CSV. Because this is a publ
 
 ## Source and verification status
 
-The original 500-row CSV is not published. The repository does not document its
-original provider, licence, observation period or whether it is real or simulated.
-The existing figures are retained as published portfolio results; this update
-does not independently rerun them. Missing-value and duplicate-check outcomes
-are not supplied. Full verification needs the original file and its provenance.
-These are sample descriptions, not employer outcomes or evidence of an uplift.
+On 18 November 2026, a [source comparison](data/Customer_Source_Check.md) reproduced the historical buyer counts, cart cross-tab, location purchase rankings and correlations on a public copy. Some published browsing, page and cart averages did not match it. The historical file, original collection details, real/simulated status and reuse terms remain unverified. These sample results do not measure employer or client outcomes.

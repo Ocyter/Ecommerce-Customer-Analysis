@@ -72,6 +72,6 @@ assert verification['quarantined_order_rows']==7
 assert verification['reported_amount_ngn']==52000
 assert verification['row_reconciliation_difference']==0
 assert verification['known_amount_reconciliation_difference_ngn']==0
-print('PASS: six page structures, local links/fragments, four CV roles, dates, PDF links, black non-italic text, PDF text bounds, and SQL fixture expectations.')
+print(f'PASS: {len(pages)} page structures, local links/fragments, four CV roles, dates, PDF links, black non-italic text, PDF text bounds, and SQL fixture expectations.')
 print('PDF_PAGES',len(reader.pages))
-print('Not checked: live desktop/mobile interactions, Power BI execution or original customer-data recomputation.')
+print('Not checked: live desktop/mobile interactions, Power BI execution or identity of the historical customer file.')
